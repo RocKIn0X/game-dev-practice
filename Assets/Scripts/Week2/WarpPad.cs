@@ -24,10 +24,10 @@ public class WarpPad : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         print("touch warp");
-        if (other.gameObject.name == "RigidBodyFPSController" && canWarp)
+        if (other.gameObject.tag == "Player" && canWarp)
         {
             print("warp");
-            other.transform.position = anotherWarp.transform.position;
+            other.transform.position = anotherWarp.transform.position + new Vector3(0f, 0.5f, 0f);
             setAnotherWarp();
         }
     }
@@ -35,7 +35,7 @@ public class WarpPad : MonoBehaviour {
     private void OnTriggerExit(Collider other)
     {
         print("warp");
-        if (other.gameObject.name == "RigidBodyFPSController")
+        if (other.gameObject.tag == "Player")
         {
             canWarp = true;
         }
