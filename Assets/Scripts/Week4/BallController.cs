@@ -46,7 +46,7 @@ public class BallController : MonoBehaviour {
         {
             isRayHitSomething = true;
             isOnGround = true;
-            print(castHit.collider.name);
+            //print(castHit.collider.name);
         }
         else
         {

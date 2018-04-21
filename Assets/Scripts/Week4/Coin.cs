@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : MonoBehaviour {
+    public float score = 1;
+    public Collider collide;
+    public Animator animator;
 
 	// Use this for initialization
 	void Start () {
@@ -11,14 +14,16 @@ public class Coin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(0, 0, 1);
+        
 	}
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
-            Destroy(gameObject);
+            print("Hit");
+            animator.SetTrigger("IsCollected");
+            //collide.enabled = false;
         }
     }
 }
